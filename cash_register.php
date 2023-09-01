@@ -23,29 +23,31 @@
         $query = "SELECT * FROM snacks";
         $result = $db->query($query);
     ?>
+     <form action="insert_order.php" method="post">
     <table>
     <?php
         //Read results from query and create the button, number and price field for each result
         while($snack = $result->fetchArray(SQLITE3_ASSOC)) {?>
             <tr>
+            <td class="snackName"><?= $snack['snackName'] ?> $<?php echo $snack['snackPrice']; ?></td>
                 <td>
-                    <button type="button" class="button" onclick="addSnack('<?php echo $snack['snackName']?>', <?php echo $snack['snackPrice']?>)"><span>
-                        <?php echo $snack['snackName']?> <br> <?php echo $snack['snackPrice'];?></span></button>
-                    <button type="button" class="button" onclick="removeSnack('<?php echo $snack['snackName']?>', <?php echo $snack['snackPrice']?>)"><span>
-                        Remove <br>x1</span></button>
+                    <button type="button" class="button" onclick="addSnack('<?php echo $snack['snackName']?>', <?php echo $snack['snackPrice']?>)"><span>Add</span></button>
+
+                    <button type="button" class="button" onclick="removeSnack('<?php echo $snack['snackName']?>', <?php echo $snack['snackPrice']?>)"><span>Remove<br></span></button>
                 </td>
-                <td>Amount: <input class="begin" type="text" placeholder="0" id="howMany<?php echo $snack['snackName']?>" disabled></td>
-                <td>Price: <input class="begin" type="text" placeholder="0" id="totalPrice<?php echo $snack['snackName']?>" disabled></td>
+                <td>Amount: <input class="begin" name="snackmany<?php echo $snack['snackName'] ?>" value="0" type="text" placeholder="0" id="howMany<?php echo $snack['snackName']?>" readonly></td>
+                <td>Price: <input class="begin"  type="text" placeholder="0" id="totalPrice<?php echo $snack['snackName']?>" value="0" readonly></td>
             </tr>
         <?php }; ?>
     </table>
     <div class="maddox">
     <strong>Total order price: </strong>
-        <input class="begin" type="text" id="totalOrderAmount" placeholder="0.00" disabled>
+        <input class="begin" name="totalAmount" type="text" id="totalOrderAmount" placeholder="0.00" readonly>
         </div>
     <p class="end"> 
-        <button type="button" class="Btn" onclick="checkout()">Checkout</button>
+        <button type="submit" class="Btn">Checkout</button>
     </p>
+        </form>
  </body>
 <script src="./cash_register.js" defer async></script>
 </html>

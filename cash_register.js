@@ -250,6 +250,5 @@ function checkout() {
   
     
     document.getElementById("totalOrderAmount").value = 0;
+
 }
-
-

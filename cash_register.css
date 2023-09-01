@@ -179,7 +179,7 @@
   
   @media (min-width: 460px) {
     td {
-      text-align: left;
+      text-align: center;
     }
     td:before {
       display: inline-block;
@@ -244,7 +244,7 @@
 
 
 .Btn {
-    width: 130px;
+    width: 400px;
     height: 40px;
     display: flex;
     align-items: center;
@@ -271,7 +271,7 @@
   }
   
   .Btn::before {
-    width: 130px;
+    width: 400px;
     height: 130px;
     position: absolute;
     content: "";
@@ -279,21 +279,21 @@
     border-radius: 50%;
     left: -100%;
     top: 0;
-    transition-duration: .3s;
+    transition-duration: 0.5s;
     mix-blend-mode: difference;
     justify-content: center;
     align-items: center;
   }
   
   .Btn:hover::before {
-    transition-duration: .3s;
+    transition-duration: 0.5s;
     transform: translate(100%,-50%);
     border-radius: 0;
   }
   
   .Btn:active {
     transform: translate(5px,5px);
-    transition-duration: .3s;
+    transition-duration: 0.5s;
   }
 
   .button {
@@ -305,7 +305,7 @@
     text-align: center;
     font-size: 19px;
     padding: 16px;
-    width: 230px;
+    width: 250px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
@@ -336,9 +336,6 @@
     right: 0;
    }
   
-  td {
-    width: 500px;
-  }
 
 .maddox {
     display: flex;
@@ -359,6 +356,7 @@
     font-size: 36px;
     border-radius: 8px;
     background-color: #fff;
+    width: 230px;
   }
 
   strong {
